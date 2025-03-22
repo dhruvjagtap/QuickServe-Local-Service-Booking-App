@@ -1,0 +1,63 @@
+name: React Native CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    name: Build & Test React Native App
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Install dependencies using Yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # Cache Node Modules (Speeds up subsequent builds)
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Run Jest tests (or any other test framework)
+      - name: Run tests
+        run: yarn test
+
+      # Set up JDK for Android build
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Build Android APK
+      - name: Build Android APK
+        run: |
+          cd android && ./gradlew assembleRelease
+
+      # Upload APK as a GitHub artifact
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release
+          path: android/app/build/outputs/apk/release/app-release.apk
