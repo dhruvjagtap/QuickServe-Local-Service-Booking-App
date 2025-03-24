@@ -1,0 +1,177 @@
+[
+    {
+      "id": 1,
+      "name": "Rahul Sharma",
+      "profession": "Plumber",
+      "mobile_number": "9876543210",
+      "email": "rahul.plumber@example.com",
+      "fees": 500,
+      "rating": 4.7,
+      "experience_years": 5,
+      "location": "Mumbai, India",
+      "availability": "9 AM - 6 PM",
+      "verified": true,
+      "reviews": [
+        {
+          "customer_name": "Amit Gupta",
+          "comment": "Quick service and very professional.",
+          "rating": 5
+        },
+        {
+          "customer_name": "Priya Kapoor",
+          "comment": "Affordable and reliable.",
+          "rating": 4.5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Amit Verma",
+      "profession": "Electrician",
+      "mobile_number": "9876543211",
+      "email": "amit.electrician@example.com",
+      "fees": 600,
+      "rating": 4.8,
+      "experience_years": 6,
+      "location": "Delhi, India",
+      "availability": "10 AM - 7 PM",
+      "verified": true,
+      "reviews": [
+        {
+          "customer_name": "Ravi Singh",
+          "comment": "Very knowledgeable and efficient.",
+          "rating": 5
+        },
+        {
+          "customer_name": "Neha Mehra",
+          "comment": "Fixed the issue quickly.",
+          "rating": 4.6
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Rajesh Kumar",
+      "profession": "Carpenter",
+      "mobile_number": "9876543212",
+      "email": "rajesh.carpenter@example.com",
+      "fees": 550,
+      "rating": 4.5,
+      "experience_years": 4,
+      "location": "Bangalore, India",
+      "availability": "8 AM - 5 PM",
+      "verified": true,
+      "reviews": [
+        {
+          "customer_name": "Kunal Das",
+          "comment": "Excellent craftsmanship.",
+          "rating": 4.9
+        },
+        {
+          "customer_name": "Megha Jain",
+          "comment": "Prompt and polite service.",
+          "rating": 4.4
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Anil Yadav",
+      "profession": "Painter",
+      "mobile_number": "9876543213",
+      "email": "anil.painter@example.com",
+      "fees": 700,
+      "rating": 4.6,
+      "experience_years": 7,
+      "location": "Hyderabad, India",
+      "availability": "9 AM - 6 PM",
+      "verified": true,
+      "reviews": [
+        {
+          "customer_name": "Pooja Reddy",
+          "comment": "Beautiful finish and timely work.",
+          "rating": 5
+        },
+        {
+          "customer_name": "Arjun Nair",
+          "comment": "Neat and professional.",
+          "rating": 4.5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Suman Joshi",
+      "profession": "House Maid",
+      "mobile_number": "9876543214",
+      "email": "suman.maid@example.com",
+      "fees": 300,
+      "rating": 4.4,
+      "experience_years": 3,
+      "location": "Pune, India",
+      "availability": "7 AM - 3 PM",
+      "verified": true,
+      "reviews": [
+        {
+          "customer_name": "Ritu Sharma",
+          "comment": "Very punctual and thorough.",
+          "rating": 4.7
+        },
+        {
+          "customer_name": "Varun Malhotra",
+          "comment": "Great attention to detail.",
+          "rating": 4.3
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Neha Tiwari",
+      "profession": "Deep Cleaning",
+      "mobile_number": "9876543215",
+      "email": "neha.cleaning@example.com",
+      "fees": 800,
+      "rating": 4.9,
+      "experience_years": 8,
+      "location": "Chennai, India",
+      "availability": "9 AM - 5 PM",
+      "verified": true,
+      "reviews": [
+        {
+          "customer_name": "Alok Mishra",
+          "comment": "Incredibly thorough cleaning.",
+          "rating": 5
+        },
+        {
+          "customer_name": "Sneha Kapoor",
+          "comment": "Highly recommend their service.",
+          "rating": 4.8
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Vikas Patil",
+      "profession": "Laundry Services",
+      "mobile_number": "9876543216",
+      "email": "vikas.laundry@example.com",
+      "fees": 450,
+      "rating": 4.5,
+      "experience_years": 4,
+      "location": "Kolkata, India",
+      "availability": "8 AM - 4 PM",
+      "verified": true,
+      "reviews": [
+        {
+          "customer_name": "Nisha Roy",
+          "comment": "Quick and clean service.",
+          "rating": 4.6
+        },
+        {
+          "customer_name": "Ashish Kumar",
+          "comment": "Very professional.",
+          "rating": 4.4
+        }
+      ]
+    }
+  ]

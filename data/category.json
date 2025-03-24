@@ -1,0 +1,18 @@
+[
+  { "id": 1, "name": "Painter", "icon": "painter.png" },
+  { "id": 2, "name": "Plumber", "icon": "plumber.png" },
+  { "id": 3, "name": "Electrician", "icon": "electrician.png" },
+  { "id": 4, "name": "Tutor", "icon": "tutor.png" },
+  { "id": 5, "name": "Carpenter", "icon": "carpenter.png" },
+  { "id": 6, "name": "Maid", "icon": "maid.png" },
+  { "id": 7, "name": "Mechanic", "icon": "mechanic.png" },
+  { "id": 8, "name": "Beautician", "icon": "beautician.png" },
+  { "id": 9, "name": "Cook", "icon": "cook.png" },
+  { "id": 10, "name": "Driver", "icon": "driver.png" },
+  { "id": 11, "name": "AC Repair", "icon": "ac-repair.png" },
+  { "id": 12, "name": "Home Cleaning", "icon": "home-cleaning.png" },
+  { "id": 13, "name": "Laundry", "icon": "laundry.png" },
+  { "id": 14, "name": "Babysitter", "icon": "babysitter.png" },
+  { "id": 15, "name": "Gardener", "icon": "gardener.png" },
+  { "id": 16, "name": "Others", "icon": "others.png" }
+]
