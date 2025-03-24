@@ -1,86 +1,201 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   StyleSheet,
   TextInput,
   View,
   Image,
   TouchableOpacity,
+  Text,
+  FlatList,
 } from 'react-native';
+import Fuse from 'fuse.js';
+import serviceProviders from '../data/dummy_service_providers.json';
 
-const Search = () => {
-  const [searchText, setSearchText] = useState('');
+type ServiceProvider = {
+  id: number;
+  name: string;
+  profession: string;
+};
 
-  const handleMicPress = () => {
-    console.log('Microphone Pressed!');
+// Debounce function
+const debounce = <T extends (...args: any[]) => void>(func: T, delay: number) => {
+  let timer: NodeJS.Timeout;
+  return (...args: Parameters<T>): void => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+};
+
+const Search: React.FC = () => {
+  const [searchText, setSearchText] = useState<string>('');
+  const [recentSearches, setRecentSearches] = useState<string[]>([]);
+  const [filteredProviders, setFilteredProviders] = useState<ServiceProvider[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
+
+  // Fuse.js configuration
+  const fuse = new Fuse(serviceProviders, {
+    keys: ['name', 'profession'],
+    threshold: 0.3,
+  });
+
+  // Debounced search function (memoized)
+  const debouncedSearch = useCallback(
+    debounce((text: string) => {
+      if (text) {
+        const results = fuse.search<ServiceProvider>(text).map((result) => result.item);
+        setFilteredProviders(results);
+        setShowSuggestions(true); // Show suggestions when user types
+      } else {
+        setFilteredProviders([]);
+        setShowSuggestions(false); // Hide suggestions if no text
+      }
+    }, 300),
+    []
+  );
+
+  // Trigger search on input change
+  useEffect(() => {
+    debouncedSearch(searchText);
+  }, [searchText, debouncedSearch]);
+
+  // Add search term to recent searches
+  const addToRecentSearches = (text: string) => {
+    if (!text) return;
+    setRecentSearches((prev) => {
+      const updatedSearches = prev.filter((item) => item !== text);
+      return [text, ...updatedSearches].slice(0, 5); // Keep only 5 recent searches
+    });
+  };
+
+  // Handle search submission
+  const handleSearchSubmit = () => {
+    if (searchText.trim()) {
+      addToRecentSearches(searchText);
+      setShowSuggestions(false); // Hide suggestions after submit
+      setSearchText('');
+    }
+  };
+
+  // Delete a recent search item
+  const deleteRecentSearch = (item: string) => {
+    setRecentSearches((prev) => prev.filter((search) => search !== item));
+  };
+
+  // Clear all recent searches
+  const clearHistory = () => {
+    setRecentSearches([]);
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchWrapper}>
-        {/* Search Icon (Left) */}
-        <Image source={require('../assets/search.png')} style={styles.searchIcon} />
+      {/* Search Bar */}
+      <View style={styles.searchBar}>
+        <TouchableOpacity onPress={handleSearchSubmit}>
+          <Image source={require('../assets/search.png')} style={styles.icon} />
+        </TouchableOpacity>
 
-        {/* Search Input */}
         <TextInput
-          style={styles.searchBar}
-          placeholder="Search..."
+          style={styles.input}
           value={searchText}
           onChangeText={setSearchText}
+          placeholder="Search..."
+          onFocus={() => setShowSuggestions(true)}
+          onSubmitEditing={handleSearchSubmit}
         />
 
-        {/* Microphone Icon (Right) */}
-        <TouchableOpacity onPress={handleMicPress}>
-          <Image source={require('../assets/microphone.png')} style={styles.micIcon} />
+        <TouchableOpacity onPress={() => console.log('Microphone Pressed!')}>
+          <Image source={require('../assets/microphone.png')} style={styles.icon} />
         </TouchableOpacity>
       </View>
+
+      {/* List of Recent Searches */}
+      {!searchText && recentSearches.length > 0 && (
+        <FlatList
+          data={recentSearches}
+          keyExtractor={(item) => item}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => setSearchText(item)}>
+              <View style={styles.recentItem}>
+                <Text>{item}</Text>
+                <TouchableOpacity onPress={() => deleteRecentSearch(item)}>
+                  <Text style={styles.deleteText}>×</Text>
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
+          )}
+          ListHeaderComponent={
+            <TouchableOpacity onPress={clearHistory}>
+              <Text style={styles.clearText}>Clear History</Text>
+            </TouchableOpacity>
+          }
+        />
+      )}
+
+      {/* Search Suggestions */}
+      {searchText && showSuggestions && (
+        <FlatList
+          data={filteredProviders}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => setSearchText(item.name)}>
+              <View style={styles.resultItem}>
+                <Text>
+                  {item.name} - {item.profession}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          )}
+        />
+      )}
     </View>
   );
 };
 
+// Styles
 const styles = StyleSheet.create({
   container: {
-    height: 50,
-    width: '100%',
-    justifyContent: 'center',
-    shadowOpacity: 0.2,
-    alignItems: 'flex-start',
-    margin: 10,
-    marginHorizontal: 20,
+    flex: 1,
     padding: 20,
+    backgroundColor: '#fff',
   },
-
-  searchWrapper: {
-    flexDirection: 'row', // Align items in a horizontal row
-    alignItems: 'center', // Vertically center items
-    height: 40, // Match TextInput height
-    width: '100%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 20,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    paddingHorizontal: 15, // Internal padding for spacing
-  },
-
   searchBar: {
-    flex: 1, // Allow input to take remaining space
-    fontSize: 15,
-    color: '#8a817c',
-    // paddingHorizontal:, // Avoid overlap with icons
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 10,
+    backgroundColor: '#f0f0f0',
+    marginBottom: 10,
   },
-
-  searchIcon: {
-    width: 20,
-    height: 20,
-    marginRight: 10, // Space between icon and input
-    paddingLeft: 5
+  input: {
+    flex: 1,
+    marginLeft: 10,
+    fontSize: 16,
   },
-
-  micIcon: {
-    width: 20,
-    height: 20,
-    marginLeft: 10, // Space between input and mic icon
+  icon: {
+    width: 24,
+    height: 24,
+  },
+  recentItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  deleteText: {
+    color: 'red',
+    fontWeight: 'bold',
+  },
+  clearText: {
+    textAlign: 'right',
+    color: 'blue',
+    marginBottom: 10,
+  },
+  resultItem: {
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
   },
 });
 
