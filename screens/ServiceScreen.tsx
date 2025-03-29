@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import TopBar from '../components/TopBar';
+import ProvidersGrid from '../components/ProvidersGrid';
 
 const ServiceScreen = ({ route, navigation }: any) => {
   const { serviceName } = route.params;
@@ -8,7 +9,7 @@ const ServiceScreen = ({ route, navigation }: any) => {
   return (
     <View style={styles.container}>
       <TopBar title={serviceName} onBackPress={() => navigation.goBack()} />
-      <Text style={styles.infoText}>Welcome to {serviceName} Service!</Text>
+      <ProvidersGrid filter={serviceName} />
     </View>
   );
 };
@@ -16,11 +17,7 @@ const ServiceScreen = ({ route, navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-  },
-  infoText: {
-    fontSize: 24,
-    marginTop: 20,
+    backgroundColor: '#fff',
   },
 });
 

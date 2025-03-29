@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 interface CategoryProps {
   name: string;
-  icon: any; // Accepts image imports
-  onPress: () => void; // Function to handle click
+  icon: any; 
+  onPress: () => void; 
 }
 
 const Category: React.FC<CategoryProps> = ({ name, icon, onPress }) => {

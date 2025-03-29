@@ -1,177 +1,147 @@
 [
-    {
+  {
       "id": 1,
-      "name": "Rahul Sharma",
-      "profession": "Plumber",
-      "mobile_number": "9876543210",
-      "email": "rahul.plumber@example.com",
-      "fees": 500,
-      "rating": 4.7,
-      "experience_years": 5,
-      "location": "Mumbai, India",
-      "availability": "9 AM - 6 PM",
-      "verified": true,
-      "reviews": [
-        {
-          "customer_name": "Amit Gupta",
-          "comment": "Quick service and very professional.",
-          "rating": 5
-        },
-        {
-          "customer_name": "Priya Kapoor",
-          "comment": "Affordable and reliable.",
-          "rating": 4.5
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Amit Verma",
-      "profession": "Electrician",
-      "mobile_number": "9876543211",
-      "email": "amit.electrician@example.com",
-      "fees": 600,
-      "rating": 4.8,
-      "experience_years": 6,
-      "location": "Delhi, India",
-      "availability": "10 AM - 7 PM",
-      "verified": true,
-      "reviews": [
-        {
-          "customer_name": "Ravi Singh",
-          "comment": "Very knowledgeable and efficient.",
-          "rating": 5
-        },
-        {
-          "customer_name": "Neha Mehra",
-          "comment": "Fixed the issue quickly.",
-          "rating": 4.6
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Rajesh Kumar",
-      "profession": "Carpenter",
-      "mobile_number": "9876543212",
-      "email": "rajesh.carpenter@example.com",
-      "fees": 550,
-      "rating": 4.5,
+      "name": "Amit Gupta",
+      "profession": "Home Cleaning",
+      "mobile_number": "9876525326",
+      "email": "homecleaning1@example.com",
+      "fees": 936,
+      "rating": 4.9,
       "experience_years": 4,
-      "location": "Bangalore, India",
-      "availability": "8 AM - 5 PM",
-      "verified": true,
-      "reviews": [
-        {
-          "customer_name": "Kunal Das",
-          "comment": "Excellent craftsmanship.",
-          "rating": 4.9
-        },
-        {
-          "customer_name": "Megha Jain",
-          "comment": "Prompt and polite service.",
-          "rating": 4.4
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Anil Yadav",
-      "profession": "Painter",
-      "mobile_number": "9876543213",
-      "email": "anil.painter@example.com",
-      "fees": 700,
-      "rating": 4.6,
-      "experience_years": 7,
-      "location": "Hyderabad, India",
+      "location": "Pimpri-Chinchwad, Maharashtra",
       "availability": "9 AM - 6 PM",
       "verified": true,
       "reviews": [
-        {
-          "customer_name": "Pooja Reddy",
-          "comment": "Beautiful finish and timely work.",
-          "rating": 5
-        },
-        {
-          "customer_name": "Arjun Nair",
-          "comment": "Neat and professional.",
-          "rating": 4.5
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Suman Joshi",
-      "profession": "House Maid",
-      "mobile_number": "9876543214",
-      "email": "suman.maid@example.com",
+          {
+              "customer_name": "Rahul Gupta",
+              "comment": "Punctual and thorough.",
+              "rating": 4.0
+          },
+          {
+              "customer_name": "Rahul Malhotra",
+              "comment": "Punctual and thorough.",
+              "rating": 4.0
+          }
+      ],
+      "latitude": 18.646564,
+      "longitude": 73.783055,
+      "image_url": "../assets/profile.jpg"
+  },
+  {
+      "id": 2,
+      "name": "Sneha Roy",
+      "profession": "Home Cleaning",
+      "mobile_number": "9876554940",
+      "email": "homecleaning2@example.com",
       "fees": 300,
-      "rating": 4.4,
+      "rating": 4.6,
       "experience_years": 3,
-      "location": "Pune, India",
+      "location": "Pune, Maharashtra",
+      "availability": "9 AM - 6 PM",
+      "verified": false,
+      "reviews": [
+          {
+              "customer_name": "Vikas Roy",
+              "comment": "Punctual and thorough.",
+              "rating": 4.1
+          },
+          {
+              "customer_name": "Sneha Verma",
+              "comment": "Excellent craftsmanship.",
+              "rating": 4.6
+          },
+          {
+              "customer_name": "Anil Sharma",
+              "comment": "Quick service and very professional.",
+              "rating": 4.0
+          }
+      ],
+      "latitude": 18.496902,
+      "longitude": 73.820206,
+      "image_url": "../assets/profile.jpg"
+  },
+  {
+      "id": 3,
+      "name": "Kunal Patil",
+      "profession": "Beautician",
+      "mobile_number": "9876544627",
+      "email": "beautician3@example.com",
+      "fees": 849,
+      "rating": 5.0,
+      "experience_years": 4,
+      "location": "Pune, Maharashtra",
+      "availability": "9 AM - 6 PM",
+      "verified": true,
+      "reviews": [
+          {
+              "customer_name": "Ashish Mishra",
+              "comment": "Punctual and thorough.",
+              "rating": 4.5
+          }
+      ],
+      "latitude": 18.477279,
+      "longitude": 73.823104,
+      "image_url": "../assets/profile.jpg"
+  },
+  {
+      "id": 4,
+      "name": "Anil Nair",
+      "profession": "Home Cleaning",
+      "mobile_number": "9876583954",
+      "email": "homecleaning4@example.com",
+      "fees": 937,
+      "rating": 4.9,
+      "experience_years": 7,
+      "location": "Nashik, Maharashtra",
+      "availability": "9 AM - 6 PM",
+      "verified": false,
+      "reviews": [
+          {
+              "customer_name": "Rajesh Verma",
+              "comment": "Punctual and thorough.",
+              "rating": 4.2
+          },
+          {
+              "customer_name": "Ashish Reddy",
+              "comment": "Punctual and thorough.",
+              "rating": 4.0
+          },
+          {
+              "customer_name": "Ravi Malhotra",
+              "comment": "Quick service and very professional.",
+              "rating": 4.2
+          }
+      ],
+      "latitude": 20.021086,
+      "longitude": 73.816518,
+      "image_url": "../assets/profile.jpg"
+  },
+  {
+      "id": 5,
+      "name": "Suman Tiwari",
+      "profession": "Carpenter",
+      "mobile_number": "9876533675",
+      "email": "carpenter5@example.com",
+      "fees": 356,
+      "rating": 4.8,
+      "experience_years": 4,
+      "location": "Pimpri-Chinchwad, Maharashtra",
       "availability": "7 AM - 3 PM",
       "verified": true,
       "reviews": [
-        {
-          "customer_name": "Ritu Sharma",
-          "comment": "Very punctual and thorough.",
-          "rating": 4.7
-        },
-        {
-          "customer_name": "Varun Malhotra",
-          "comment": "Great attention to detail.",
-          "rating": 4.3
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Neha Tiwari",
-      "profession": "Deep Cleaning",
-      "mobile_number": "9876543215",
-      "email": "neha.cleaning@example.com",
-      "fees": 800,
-      "rating": 4.9,
-      "experience_years": 8,
-      "location": "Chennai, India",
-      "availability": "9 AM - 5 PM",
-      "verified": true,
-      "reviews": [
-        {
-          "customer_name": "Alok Mishra",
-          "comment": "Incredibly thorough cleaning.",
-          "rating": 5
-        },
-        {
-          "customer_name": "Sneha Kapoor",
-          "comment": "Highly recommend their service.",
-          "rating": 4.8
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Vikas Patil",
-      "profession": "Laundry Services",
-      "mobile_number": "9876543216",
-      "email": "vikas.laundry@example.com",
-      "fees": 450,
-      "rating": 4.5,
-      "experience_years": 4,
-      "location": "Kolkata, India",
-      "availability": "8 AM - 4 PM",
-      "verified": true,
-      "reviews": [
-        {
-          "customer_name": "Nisha Roy",
-          "comment": "Quick and clean service.",
-          "rating": 4.6
-        },
-        {
-          "customer_name": "Ashish Kumar",
-          "comment": "Very professional.",
-          "rating": 4.4
-        }
-      ]
-    }
-  ]
+          {
+              "customer_name": "Anil Joshi",
+              "comment": "Highly recommended.",
+              "rating": 4.5
+          },
+          {
+              "customer_name": "Rahul Tiwari",
+              "comment": "Quick service and very professional.",
+              "rating": 4.9
+          }
+      ],
+      "latitude": 18.601618,
+      "longitude": 73.773066,
+      "image_url": "../assets/profile.jpg"
+  }
+]

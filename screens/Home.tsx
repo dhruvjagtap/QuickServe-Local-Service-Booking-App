@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
 
+
 import TopBar from '../components/TopBar'; // Fixed path
 import Search from '../components/Search';
 import CategoryGrid from '../components/CategoryGrid'; // Fixed typo
